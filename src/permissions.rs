@@ -54,11 +54,12 @@ pub fn edit(
 ) -> Result<(), String> {
     let mut apply = apply;
     let request = Request {
-        object: Object { name: what.to_string(), kind: "Folder".into(), container: true, children: Children::All },
+        object: Object { name: what.to_string(), kind: "Folder".into(), container: true, children: Children::All, ..Object::default() },
         sd: sd.to_vec(),
         rights: rights(),
         generic: generic(),
-        can: Can { dacl: may, owner: may, audit: false, why: if may { None } else { why } },
+        can: Can { dacl: may, owner: may, why: if may { None } else { why }, ..Can::default() },
+        ..Request::default()
     };
     gxwi_sd_editor::edit(&request, move |sd, _parts| apply(sd), done).map_err(|e| {
         if e.kind() == std::io::ErrorKind::NotFound {
