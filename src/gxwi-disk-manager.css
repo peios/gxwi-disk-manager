@@ -1,0 +1,104 @@
+/* What is Disk Manager's alone; the rest is libgxwi's settings stylesheet. */
+
+/* What each filesystem is drawn in, on a disk's bar and beside its row. */
+.dm-seg.c-linux, .dm-swatch.c-linux { --fill: #2a6fc9; }
+.dm-seg.c-fat, .dm-swatch.c-fat { --fill: #c56a12; }
+.dm-seg.c-swap, .dm-swatch.c-swap { --fill: #7b5cd6; }
+.dm-seg.c-other, .dm-swatch.c-other { --fill: #1f8f8a; }
+.dm-seg.c-none, .dm-swatch.c-none { --fill: #6b7280; }
+@media (prefers-color-scheme: dark) {
+    .dm-seg.c-linux, .dm-swatch.c-linux { --fill: #4b8fe0; }
+    .dm-seg.c-fat, .dm-swatch.c-fat { --fill: #d9852f; }
+    .dm-seg.c-swap, .dm-swatch.c-swap { --fill: #9479ea; }
+    .dm-seg.c-other, .dm-swatch.c-other { --fill: #2fb3ad; }
+    .dm-seg.c-none, .dm-swatch.c-none { --fill: #7c8594; }
+}
+
+/* A disk as a bar: what is on it, each as wide as its share. */
+.dm-bar {
+    display: flex;
+    gap: 3px;
+    margin: 0 0 var(--space-4);
+    padding: 3px;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    background: var(--bg-sunken);
+}
+.dm-seg {
+    flex: 1 1 0;
+    min-width: 44px;
+    height: 52px;
+    display: grid;
+    align-content: center;
+    gap: 1px;
+    padding: 0 var(--space-2);
+    overflow: hidden;
+    text-align: left;
+    color: #fff;
+    background: var(--fill);
+    border: 0;
+    border-radius: calc(var(--radius-md) - 3px);
+    font: inherit;
+}
+.dm-seg b, .dm-seg small { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.dm-seg b { font-size: 12px; font-weight: 650; }
+.dm-seg small { font-size: 11px; opacity: .85; font-variant-numeric: tabular-nums; }
+button.dm-seg { cursor: pointer; }
+button.dm-seg:hover { filter: brightness(1.08); }
+button.dm-seg:focus-visible { outline: 2px solid var(--accent-solid); outline-offset: 2px; }
+.dm-seg.free {
+    color: var(--text-secondary);
+    background: repeating-linear-gradient(-45deg, transparent 0 6px, var(--surface-2) 6px 12px);
+    box-shadow: inset 0 0 0 1px var(--border-default);
+}
+button.dm-seg.free:disabled { cursor: default; filter: none; }
+.dm-seg.g1 { flex-grow: 1 } .dm-seg.g2 { flex-grow: 2 } .dm-seg.g3 { flex-grow: 3 } .dm-seg.g4 { flex-grow: 4 } .dm-seg.g5 { flex-grow: 5 }
+.dm-seg.g6 { flex-grow: 6 } .dm-seg.g7 { flex-grow: 7 } .dm-seg.g8 { flex-grow: 8 } .dm-seg.g9 { flex-grow: 9 } .dm-seg.g10 { flex-grow: 10 }
+.dm-seg.g11 { flex-grow: 11 } .dm-seg.g12 { flex-grow: 12 } .dm-seg.g13 { flex-grow: 13 } .dm-seg.g14 { flex-grow: 14 } .dm-seg.g15 { flex-grow: 15 }
+.dm-seg.g16 { flex-grow: 16 } .dm-seg.g17 { flex-grow: 17 } .dm-seg.g18 { flex-grow: 18 } .dm-seg.g19 { flex-grow: 19 } .dm-seg.g20 { flex-grow: 20 }
+.dm-seg.g21 { flex-grow: 21 } .dm-seg.g22 { flex-grow: 22 } .dm-seg.g23 { flex-grow: 23 } .dm-seg.g24 { flex-grow: 24 } .dm-seg.g25 { flex-grow: 25 }
+.dm-seg.g26 { flex-grow: 26 } .dm-seg.g27 { flex-grow: 27 } .dm-seg.g28 { flex-grow: 28 } .dm-seg.g29 { flex-grow: 29 } .dm-seg.g30 { flex-grow: 30 }
+.dm-seg.g31 { flex-grow: 31 } .dm-seg.g32 { flex-grow: 32 } .dm-seg.g33 { flex-grow: 33 } .dm-seg.g34 { flex-grow: 34 } .dm-seg.g35 { flex-grow: 35 }
+.dm-seg.g36 { flex-grow: 36 } .dm-seg.g37 { flex-grow: 37 } .dm-seg.g38 { flex-grow: 38 } .dm-seg.g39 { flex-grow: 39 } .dm-seg.g40 { flex-grow: 40 }
+.dm-seg.g41 { flex-grow: 41 } .dm-seg.g42 { flex-grow: 42 } .dm-seg.g43 { flex-grow: 43 } .dm-seg.g44 { flex-grow: 44 } .dm-seg.g45 { flex-grow: 45 }
+.dm-seg.g46 { flex-grow: 46 } .dm-seg.g47 { flex-grow: 47 } .dm-seg.g48 { flex-grow: 48 } .dm-seg.g49 { flex-grow: 49 } .dm-seg.g50 { flex-grow: 50 }
+.dm-seg.g51 { flex-grow: 51 } .dm-seg.g52 { flex-grow: 52 } .dm-seg.g53 { flex-grow: 53 } .dm-seg.g54 { flex-grow: 54 } .dm-seg.g55 { flex-grow: 55 }
+.dm-seg.g56 { flex-grow: 56 } .dm-seg.g57 { flex-grow: 57 } .dm-seg.g58 { flex-grow: 58 } .dm-seg.g59 { flex-grow: 59 } .dm-seg.g60 { flex-grow: 60 }
+.dm-seg.g61 { flex-grow: 61 } .dm-seg.g62 { flex-grow: 62 } .dm-seg.g63 { flex-grow: 63 } .dm-seg.g64 { flex-grow: 64 } .dm-seg.g65 { flex-grow: 65 }
+.dm-seg.g66 { flex-grow: 66 } .dm-seg.g67 { flex-grow: 67 } .dm-seg.g68 { flex-grow: 68 } .dm-seg.g69 { flex-grow: 69 } .dm-seg.g70 { flex-grow: 70 }
+.dm-seg.g71 { flex-grow: 71 } .dm-seg.g72 { flex-grow: 72 } .dm-seg.g73 { flex-grow: 73 } .dm-seg.g74 { flex-grow: 74 } .dm-seg.g75 { flex-grow: 75 }
+.dm-seg.g76 { flex-grow: 76 } .dm-seg.g77 { flex-grow: 77 } .dm-seg.g78 { flex-grow: 78 } .dm-seg.g79 { flex-grow: 79 } .dm-seg.g80 { flex-grow: 80 }
+.dm-seg.g81 { flex-grow: 81 } .dm-seg.g82 { flex-grow: 82 } .dm-seg.g83 { flex-grow: 83 } .dm-seg.g84 { flex-grow: 84 } .dm-seg.g85 { flex-grow: 85 }
+.dm-seg.g86 { flex-grow: 86 } .dm-seg.g87 { flex-grow: 87 } .dm-seg.g88 { flex-grow: 88 } .dm-seg.g89 { flex-grow: 89 } .dm-seg.g90 { flex-grow: 90 }
+.dm-seg.g91 { flex-grow: 91 } .dm-seg.g92 { flex-grow: 92 } .dm-seg.g93 { flex-grow: 93 } .dm-seg.g94 { flex-grow: 94 } .dm-seg.g95 { flex-grow: 95 }
+.dm-seg.g96 { flex-grow: 96 } .dm-seg.g97 { flex-grow: 97 } .dm-seg.g98 { flex-grow: 98 } .dm-seg.g99 { flex-grow: 99 } .dm-seg.g100 { flex-grow: 100 }
+
+/* Beside a partition's row: its colour on the bar. */
+.dm-swatch {
+    flex: none;
+    width: 14px;
+    height: 28px;
+    border-radius: 4px;
+    background: var(--fill);
+}
+.dm-swatch.free {
+    background: repeating-linear-gradient(-45deg, transparent 0 4px, var(--surface-2) 4px 8px);
+    box-shadow: inset 0 0 0 1px var(--border-default);
+}
+
+/* How full a filesystem is. */
+.dm-usage { display: flex; align-items: center; gap: var(--space-2); color: var(--text-secondary); font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dm-usage meter { width: 160px; height: 10px; }
+.dm-aside { color: var(--text-secondary); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* A size and its unit, side by side. */
+.dm-size { display: flex; gap: var(--space-2); align-items: center; }
+
+/* What a form erases, said before its button. */
+.st-more p.dm-warn { color: var(--danger-text); font-weight: 600; margin: var(--space-3) 0; }
+.st-more form .st-row { padding-left: 0; padding-right: 0; }
+
+@media (max-width: 720px) {
+    .dm-seg { min-width: 32px; padding: 0 var(--space-1); }
+    .dm-usage meter { width: 96px; }
+}
