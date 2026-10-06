@@ -8,14 +8,14 @@ publish = false
 [dependencies]
 # libgxwi as of the gxwi release dev.peios.gxwi-sdk stages, which a package
 # build takes it from (gxwi's dev/pins.toml).
-libgxwi = { git = "https://github.com/peios/gxwi.git", rev = "5629140add3de075511b3379fd690fdabd06dcaf" }
+libgxwi = { git = "https://github.com/peios/gxwi.git", rev = "e9d86e56e8d79b4240ff5114434b4cdc0c5b1f76" }
 # Mount policies, the person's privileges and descriptors in words. Every
 # crate in one program must pin the same revision: `peios-sys` links
 # libpeios, and a program can hold only one.
 peios = { git = "https://github.com/peios/peios-rs.git", rev = "f8c84930f2b71763bcf0550df0b1420a0f63b21e", package = "peios" }
 # The permissions a mount gives files without their own, and those of a new
 # filesystem's top folder.
-gxwi-sd-editor = { git = "https://github.com/peios/gxwi-sd-editor.git", rev = "27239eb3411ab82d711262bfd59e537c66c29e9e", default-features = false, features = ["names"] }
+gxwi-sd-editor = { git = "https://github.com/peios/gxwi-sd-editor.git", rev = "43fee424bdfd756996a63347f31abcb6af64eb62", default-features = false, features = ["names"] }
 # lsblk's and stratafs's answers, which are JSON.
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
