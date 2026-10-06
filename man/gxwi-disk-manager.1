@@ -1,0 +1,62 @@
+.TH GXWI-DISK-MANAGER 1 "2026-10-06" "Peios"
+.SH NAME
+gxwi-disk-manager \- see this machine's disks, partitions and mounts, on a GXWI desktop
+.SH SYNOPSIS
+.B gxwi-disk-manager
+.SH DESCRIPTION
+Disk Manager is the desktop's window on this machine's storage. Down the
+side are the disks, then Mounts and At Startup. A disk's page gives its
+model, size, device and partition table, and a bar that draws the disk from
+start to end: each partition as wide as its share, in the colour of what it
+holds, with free space striped. The list under the bar says the same in
+words. Pressing a partition opens it: its filesystem, label, UUID and how
+full it is; where it is mounted; and its number, type, name and place on the
+disk.
+.PP
+Every mount has a mount policy: what Peios does with a file that has no
+permissions of its own. Disk Manager names them by what they do: Deny
+Access, Give Permissions, Not Saved, Give Permissions and Save Them, and Not
+Managed. Permissions... shows, in the permissions editor, the template that
+files are given where their folder has none to pass on. Mounts lists
+everything mounted, with its options and policy, and for a StrataFS view its
+strata. At Startup lists what is mounted every time the machine starts.
+.PP
+The forms are all here: Erase Disk, adding and deleting a partition, Format
+(ext4 or FAT32, and for ext4 the permissions of its top folder), Mount,
+Unmount, a mount's policy, At Startup and Eject. None of them changes
+anything yet. Changes are made by a privileged disk service, which is not
+built; until it is, each change is checked and asked about as it will be,
+then ends by saying on the status line that nothing was changed. Until then,
+use part, mke2fs and mount.
+.PP
+Changing disks needs the Manage Volumes privilege, which Administrators
+hold. Anyone else sees everything there is to see, with the reason said
+once, and nothing to press. Opening a disk to read its partition table and
+filesystems is, as shipped, for SYSTEM and Administrators only; for anyone
+else a disk's partitions are still listed, a mounted filesystem's type comes
+from the mount table, and the rest is marked Not Readable or Contents
+unknown. A mount's policy can only be read with Manage Volumes too.
+.PP
+It reads as the person, and changes nothing: lsblk for the disks, sysfs for
+where partitions lie, the kernel's mount table, statvfs for how full each
+filesystem is, the kernel for each mount's policy, and stratafs for the
+system's views. It looks every two seconds, so a disk plugged in or taken
+out, or anything mounted or unmounted elsewhere, shows within a couple of
+seconds.
+.PP
+It takes no arguments. Without a desktop to open on, it says so and ends.
+.SH FILES
+.TP
+.I /usr/share/apps/dev.peios.gxwi-disk-manager.toml
+Its application declaration, listed in a launcher as Disk Manager.
+.TP
+.I /proc/self/mountinfo
+The kernel's mount table, which it reads for what is mounted.
+.TP
+.I /sys/class/block
+Where it reads each partition's place on its disk.
+.SH SEE ALSO
+.BR lsblk (8),
+.BR gxwi-sd-editor (1).
+.PP
+Disk Manager, at learn.peios.org.
